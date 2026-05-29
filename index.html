@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow — Minimalist, Zero-Distraction Website Blocker</title>
+  <meta name="description" content="Reclaim your focus and do deep work. Flow is a premium, minimalist website blocker and habit tracker browser extension for students and developers.">
+  <link rel="icon" type="image/png" href="./icons/icon16.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Graphics -->
+  <div class="canvas-grid"></div>
+  <div class="canvas-spotlight"></div>
+  <div class="glow-blob blob-green"></div>
+  <div class="glow-blob blob-amber"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-brand" id="nav-logo">
+        <img src="./icons/icon128.png" alt="Flow Logo" style="width: 28px; height: 28px; border-radius: 6px; filter: drop-shadow(0 0 6px rgba(5, 213, 129, 0.3));">
+        <span>Flow</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank">Open Source</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="btn-theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme">
+          <svg id="theme-sun-icon" viewBox="0 0 24 24" style="display: none;">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M16.24 16.24l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg id="theme-moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <!-- GitHub Link Button -->
+        <a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank" class="nav-social-link" title="View Source on GitHub">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="#download" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.84rem;">Install</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Big Hero Section -->
+  <section class="hero-section">
+    <div class="hero-grid">
+      <!-- Left side copywriting -->
+      <div class="hero-left">
+        <div class="hero-tag">
+          <span></span> Open source release
+        </div>
+        <h1 class="hero-headline">
+          Enter the Zone.<br>
+          <span class="text-gradient">Block Distractions.</span><br>
+          <span class="text-gradient-orange">Build Habits.</span>
+        </h1>
+        <p class="hero-tagline">
+          Flow is a premium, zero-distraction website blocker and study companion. It blends visual analytics with a customizable Pomodoro timer to help students protect their attention span.
+        </p>
+        <span class="browser-title" style="margin-bottom: 0.8rem; display: block;">Supported Browsers</span>
+        <div class="btn-group">
+          <a href="https://addons.mozilla.org/en-US/firefox/addon/flow-website-manager/" target="_blank" class="btn btn-primary">
+            <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@main/src/firefox/firefox.svg" alt="Firefox" style="width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0;">
+            Install on Firefox
+          </a>
+          <a href="https://microsoftedge.microsoft.com/addons/detail/jlcdkibfogehgkbhkkkglifbanenkmic" target="_blank" class="btn btn-secondary">
+            <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@main/src/edge/edge.svg" alt="Edge" style="width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0;">
+            Get Edge Extension
+          </a>
+          <a href="#" class="btn btn-secondary" style="opacity: 0.85; cursor: default;" onclick="event.preventDefault();">
+            <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos@main/src/chrome/chrome.svg" alt="Chrome" style="width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0;">
+            Chrome Extension (Coming Soon)
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side extension mockup -->
+      <div class="mockup-container">
+        <div class="mockup-card">
+          
+          <!-- Keypad verification screen overlay -->
+          <div class="mock-overlay" id="mockOverlay">
+            <div class="mock-try-badge">💡 Try the Live Demo!</div>
+            <div class="mock-overlay-icon">🔒</div>
+            <div class="mock-overlay-title">Unlock Settings</div>
+            <div class="mock-overlay-sub">Enter PIN (1234) to customize rules</div>
+            <div class="mock-pin-dots">
+              <div class="mock-pin-dot" id="dot1"></div>
+              <div class="mock-pin-dot" id="dot2"></div>
+              <div class="mock-pin-dot" id="dot3"></div>
+              <div class="mock-pin-dot" id="dot4"></div>
+            </div>
+            <div class="mock-keypad">
+              <button class="mock-key" onclick="pressPin('1')">1</button>
+              <button class="mock-key" onclick="pressPin('2')">2</button>
+              <button class="mock-key" onclick="pressPin('3')">3</button>
+              <button class="mock-key" onclick="pressPin('4')">4</button>
+              <button class="mock-key" onclick="pressPin('5')">5</button>
+              <button class="mock-key" onclick="pressPin('6')">6</button>
+              <button class="mock-key" onclick="pressPin('7')">7</button>
+              <button class="mock-key" onclick="pressPin('8')">8</button>
+              <button class="mock-key" onclick="pressPin('9')">9</button>
+              <button class="mock-key mock-key-action" onclick="clearPin()">⌫</button>
+              <button class="mock-key" onclick="pressPin('0')">0</button>
+              <button class="mock-key mock-key-action" onclick="submitPin()">OK</button>
+            </div>
+            <div class="mock-pin-error" id="pinError">Incorrect PIN. Try again.</div>
+          </div>
+
+          <!-- Mock Header -->
+          <div class="mock-header">
+            <div class="mock-logo">
+              <img src="./icons/icon128.png" id="mockLogoDot" alt="Flow Logo" style="width: 18px; height: 18px; border-radius: 4px;">
+              <span>Flow</span>
+              <span class="mock-streak">⚡ 5 Days</span>
+            </div>
+            <div class="mock-header-right">
+              <button class="mock-btn-icon" id="btnShowAnalytics" title="Explore Options & Features">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </button>
+              <button class="mock-btn-icon" id="btnLock" title="Lock Settings Panel">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </button>
+              <button class="mock-btn-icon" id="btnShowSettings" title="Timer Settings">
+                <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Scrollable Content Pane -->
+          <div class="mock-scrollable-content">
+            <!-- Tabs -->
+            <div class="mock-tabs">
+              <button class="mock-tab-btn active" id="tabToday">Today</button>
+              <button class="mock-tab-btn" id="tabTotal">All Time</button>
+            </div>
+
+            <!-- Donut Section -->
+            <div class="mock-donut-container">
+              <div class="mock-donut-svg-wrap">
+                <svg viewBox="0 0 100 100" id="mockDonutSvg">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="12"></circle>
+                  <circle class="mock-donut-slice" id="sliceYoutube" cx="50" cy="50" r="40" stroke="#F46B7A" stroke-dasharray="110 251.2" stroke-dashoffset="0"></circle>
+                  <circle class="mock-donut-slice" id="sliceGithub" cx="50" cy="50" r="40" stroke="#5C9CFC" stroke-dasharray="78.5 251.2" stroke-dashoffset="-110"></circle>
+                  <circle class="mock-donut-slice" id="sliceStack" cx="50" cy="50" r="40" stroke="#05D581" stroke-dasharray="37.7 251.2" stroke-dashoffset="-188.5"></circle>
+                  <circle class="mock-donut-slice" id="sliceReddit" cx="50" cy="50" r="40" stroke="#F6B846" stroke-dasharray="25 251.2" stroke-dashoffset="-226.2"></circle>
+                </svg>
+                <div class="mock-donut-center">
+                  <span class="mock-donut-total" id="donutTotalText">8.0h</span>
+                  <span class="mock-donut-lbl" id="donutLabelText">Today</span>
+                </div>
+              </div>
+              
+              <div class="mock-legend" id="mockLegendList">
+                <div class="mock-legend-row" id="legRowYoutube">
+                  <div class="mock-legend-dot" style="background: #F46B7A; box-shadow: 0 0 6px #F46B7A;"></div>
+                  <span class="mock-legend-name">youtube.com</span>
+                  <span class="mock-legend-val" id="legValYoutube">3.5h</span>
+                </div>
+                <div class="mock-legend-row" id="legRowGithub">
+                  <div class="mock-legend-dot" style="background: #5C9CFC; box-shadow: 0 0 6px #5C9CFC;"></div>
+                  <span class="mock-legend-name">github.com</span>
+                  <span class="mock-legend-val" id="legValGithub">2.5h</span>
+                </div>
+                <div class="mock-legend-row" id="legRowStack">
+                  <div class="mock-legend-dot" style="background: #05D581; box-shadow: 0 0 6px #05D581;"></div>
+                  <span class="mock-legend-name">stackoverflow.com</span>
+                  <span class="mock-legend-val" id="legValStack">1.2h</span>
+                </div>
+                <div class="mock-legend-row" id="legRowReddit">
+                  <div class="mock-legend-dot" style="background: #F6B846; box-shadow: 0 0 6px #F6B846;"></div>
+                  <span class="mock-legend-name">reddit.com</span>
+                  <span class="mock-legend-val" id="legValReddit">0.8h</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Focus Mode Card -->
+            <div class="mock-focus-card" id="timerContainer">
+              
+              <!-- Timer Settings Drawer/Panel inside Focus Mode card -->
+              <div class="focus-settings-panel" id="mockSettingsPanel" style="display: none;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <span style="font-weight:800;font-size:13px;color:var(--text-primary)">Timer Settings</span>
+                  <button id="btnCloseSettings" style="background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:18px;line-height:1;">✕</button>
+                </div>
+                <div class="mock-fsp-row">
+                  <label>Work (min)</label>
+                  <input type="number" id="inputWorkTime" value="25" min="1" max="120">
+                </div>
+                <div class="mock-fsp-row">
+                  <label>Short Break</label>
+                  <input type="number" id="inputBreakTime" value="5" min="0" max="60">
+                </div>
+                <div class="mock-fsp-row">
+                  <label>Cycles</label>
+                  <input type="number" id="inputCycles" value="4" min="1" max="10">
+                </div>
+                <button class="mock-save-btn" id="btnSaveSettings" style="width:100%;margin-top:8px;">Save Settings</button>
+                <div id="settingsFeedback" style="display:none; font-size:10px; font-weight:700; text-align:center; padding: 6px; border-radius:6px; margin-top:8px; line-height:1.3;"></div>
+              </div>
+
+              <div class="mock-focus-top">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span class="mock-lbl">Focus Mode</span>
+                  <div class="mock-presets-rail">
+                    <span class="mock-preset active" id="mpPomo" onclick="selectMockPreset('Pomo')" title="Pomodoro">🍅</span>
+                    <span class="mock-preset" id="mpDeep" onclick="selectMockPreset('Deep')" title="Deep Work">🧠</span>
+                    <span class="mock-preset" id="mpSprint" onclick="selectMockPreset('Sprint')" title="Sprint">⚡</span>
+                    <span class="mock-preset" id="mpFlow" onclick="selectMockPreset('Flow')" title="Flow">🌊</span>
+                  </div>
+                </div>
+                <span class="mock-phase" id="timerPhase">Work Session</span>
+              </div>
+
+              <div class="mock-focus-body">
+                <div class="mock-focus-ring">
+                  <svg viewBox="0 0 80 80">
+                    <circle class="mock-ring-bg" cx="40" cy="40" r="32"></circle>
+                    <circle class="mock-ring-fill" id="timerCircle" cx="40" cy="40" r="32"></circle>
+                  </svg>
+                  <div class="mock-ring-inner">
+                    <span class="mock-ring-time" id="timerClock">25:00</span>
+                    <span class="mock-ring-cycles" id="timerCycles">0 done</span>
+                  </div>
+                </div>
+                <div class="mock-focus-info">
+                  <div class="mock-focus-title" id="timerTitle">Ready to focus?</div>
+                  <div class="mock-focus-sub" id="timerSub">25m work · 5m short break</div>
+                </div>
+              </div>
+
+              <div class="mock-focus-btns">
+                <button class="mock-fbtn go" id="btnTimerStart">▶ Start Focus</button>
+                <button class="mock-fbtn stop" id="btnTimerStop" style="display:none">■ Reset</button>
+              </div>
+            </div>
+
+            <!-- Weekly Goal Card (Hidden by default, shown on All Time) -->
+            <div class="mock-goal-section" id="mockGoalSection" style="display:none;">
+              <div class="mock-goal-header">
+                <span class="mock-goal-lbl">Weekly Goal</span>
+                <span class="mock-goal-pct" id="mockGoalPct">85%</span>
+              </div>
+              <div class="mock-goal-track">
+                <div class="mock-goal-fill" id="mockGoalFill" style="width: 85%;"></div>
+              </div>
+              <div class="mock-goal-sub">
+                <span style="font-weight: 700; color: var(--text-primary);">17.0h done</span>
+                <span>20.0h target</span>
+              </div>
+            </div>
+
+            <!-- Site list title -->
+            <div class="mock-list-title" id="mockListTitle">ALL SITES TODAY (CLICK TAG TO EDIT)</div>
+            <div class="mock-sites-list" id="mockSitesList">
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="#FF4500" class="mock-site-favicon" style="flex-shrink: 0;">
+                    <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.24-1.72l1.37-4.3 3.79.8c.09 1.09 1 1.97 2.12 1.97 1.18 0 2.12-.94 2.12-2.12s-.94-2.12-2.12-2.12c-.9 0-1.66.56-1.97 1.34l-4.12-.87c-.24-.05-.48.09-.54.33l-1.5 4.7c-2.46.06-4.73.7-6.39 1.71-.56-.74-1.44-1.22-2.42-1.22-1.65 0-3 1.35-3 3 0 1.11.61 2.07 1.51 2.58-.06.3-.09.62-.09.94 0 3.86 4.43 7 9.88 7 5.46 0 9.89-3.14 9.89-7 0-.32-.03-.64-.09-.95.89-.5 1.5-1.46 1.5-2.57zm-18.75.25c0-.83.68-1.5 1.5-1.5s1.5.67 1.5 1.5-.68 1.5-1.5 1.5-1.5-.67-1.5-1.5zm11.5 5.5c-1.82 1.82-5.32 1.82-7.14 0-.15-.15-.15-.39 0-.54.15-.15.39-.15.54 0 1.52 1.52 4.54 1.52 6.06 0 .15-.15.39-.15.54 0 .15.15.15.39 0 .54zm-.25-4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                  </svg>
+                  <span class="mock-sitedom">reddit.com</span>
+                </div>
+                <span class="fc-site-tag tag-red" id="mockTagReddit" onclick="cycleMockSiteTag('Reddit')">DISTRACTION</span>
+                <span class="mock-sitetime" id="siteTimeReddit">0.8h</span>
+              </div>
+              
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="#FF0000" class="mock-site-favicon" style="flex-shrink: 0;">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507A3.003 3.003 0 0 0 .502 6.164C0 8.035 0 12 0 12s0 3.965.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.389-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.965 24 12 24 12s0-3.965-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  <span class="mock-sitedom">youtube.com</span>
+                </div>
+                <span class="fc-site-tag tag-red" id="mockTagYoutube" onclick="cycleMockSiteTag('Youtube')">DISTRACTION</span>
+                <span class="mock-sitetime" id="siteTimeYoutube">3.5h</span>
+              </div>
+
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" style="flex-shrink: 0; border-radius: 4px;">
+                    <defs>
+                      <linearGradient id="canvaGradientMock" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00C4CC"/>
+                        <stop offset="100%" stop-color="#7D2AE8"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" fill="url(#canvaGradientMock)" />
+                    <path d="M12.5 8c-1.5 0-2.2 1-2.2 2.2s.7 2.2 2.2 2.2c.8 0 1.4-.5 1.4-1h-1c0 .2-.2.3-.4.3-.5 0-.8-.4-.8-1.5s.3-1.5.8-1.5c.2 0 .4.1.4.3h1c0-.5-.6-1-1.4-1z" fill="#FFF"/>
+                  </svg>
+                  <span class="mock-sitedom">canva.com</span>
+                </div>
+                <span class="fc-site-tag tag-green" id="mockTagCanva" onclick="cycleMockSiteTag('Canva')">PRODUCTIVITY</span>
+                <span class="mock-sitetime" id="siteTimeCanva">0.6h</span>
+              </div>
+
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" class="mock-site-favicon" style="flex-shrink: 0;">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.2.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span class="mock-sitedom">github.com</span>
+                </div>
+                <span class="fc-site-tag tag-green" id="mockTagGithub" onclick="cycleMockSiteTag('Github')">PRODUCTIVITY</span>
+                <span class="mock-sitetime" id="siteTimeGithub">2.5h</span>
+              </div>
+
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="#F48024" class="mock-site-favicon" style="flex-shrink: 0;">
+                    <path d="M18.986 21.865v-6.404h2.21v8.61H1.02v-8.61h2.21v6.404h15.756zM6.155 15.427l10.151 2.112.453-2.164-10.151-2.112-.453 2.164zm1.724-4.95l8.61 4.76.996-1.996-8.61-4.76-.996 1.996zm2.885-4.363l6.56 7.29 1.637-1.472-6.56-7.29-1.637 1.472zM14.09.48l-4.12 8.92 1.996.924 4.12-8.92L14.09.48zm-8.86 19.175h10.457v-2.21H5.23v2.21z"/>
+                  </svg>
+                  <span class="mock-sitedom">stackoverflow.com</span>
+                </div>
+                <span class="fc-site-tag tag-purple" id="mockTagStack" onclick="cycleMockSiteTag('StackOverflow')">LEARNING</span>
+                <span class="mock-sitetime" id="siteTimeStack">1.2h</span>
+              </div>
+
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="url(#instaGlowMock)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="mock-site-favicon" style="flex-shrink: 0;">
+                    <defs>
+                      <linearGradient id="instaGlowMock" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#f9ce34" />
+                        <stop offset="50%" stop-color="#ee2a7b" />
+                        <stop offset="100%" stop-color="#6228d7" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3" />
+                  </svg>
+                  <span class="mock-sitedom">instagram.com</span>
+                </div>
+                <span class="fc-site-tag tag-red" id="mockTagInstagram" onclick="cycleMockSiteTag('Instagram')">DISTRACTION</span>
+                <span class="mock-sitetime" id="siteTimeInstagram">0.4h</span>
+              </div>
+
+              <div class="mock-site-item">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" class="mock-site-favicon" style="flex-shrink: 0; filter: drop-shadow(0 0 1.5px rgba(0, 242, 234, 0.4)) drop-shadow(0 0 1.5px rgba(254, 44, 85, 0.4));">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.95.84 2.19 1.4 3.49 1.62v3.9c-1.42-.09-2.8-.62-3.92-1.53v6.78c0 3.32-2.18 6.42-5.46 7.22-3.66.9-7.5-1.2-8.52-4.73-1.07-3.7 1.25-7.77 5.06-8.53.86-.17 1.74-.15 2.58.07v4.02c-.78-.29-1.65-.29-2.39.06-1.24.59-1.95 2.01-1.63 3.35.34 1.41 1.83 2.31 3.24 1.95 1.15-.3 1.93-1.38 1.92-2.58V0h.12z"/>
+                  </svg>
+                  <span class="mock-sitedom">tiktok.com</span>
+                </div>
+                <span class="fc-site-tag tag-red" id="mockTagTiktok" onclick="cycleMockSiteTag('Tiktok')">DISTRACTION</span>
+                <span class="mock-sitetime" id="siteTimeTiktok">0.2h</span>
+              </div>
+            </div>  </div>
+            </div>
+
+          </div> <!-- End scrollable content -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section-features" id="features">
+    <h2 class="section-title">Designed for Deep Study</h2>
+    <p class="section-subtitle">All the tools you need to protect your focus, contain distractions, and build clean study habits in a beautiful package.</p>
+    
+    <div class="features-grid">
+      <!-- Feature Card 1 -->
+      <div class="feature-card glass-card">
+        <div class="feature-header">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3>Focus Mode & Presets</h3>
+          <p>Launch custom work intervals (like Pomodoro or Deep Work) in one click, and track your streaks directly from the focus view.</p>
+        </div>
+        <div class="feature-graphic" style="height: 170px; padding: 16px 12px;">
+          <div class="f-presets-grid">
+            <div class="f-preset active" id="fPresetPomo" onclick="selectFPreset('Pomo')">
+              <span>🍅</span>
+              <strong>Pomodoro</strong>
+              <small>25m · 5m</small>
+            </div>
+            <div class="f-preset" id="fPresetDeep" onclick="selectFPreset('Deep')">
+              <span>🧠</span>
+              <strong>Deep Work</strong>
+              <small>90m · 15m</small>
+            </div>
+            <div class="f-preset" id="fPresetSprint" onclick="selectFPreset('Sprint')">
+              <span>⚡</span>
+              <strong>Sprint</strong>
+              <small>15m · 2m</small>
+            </div>
+            <div class="f-preset" id="fPresetFlow" onclick="selectFPreset('Flow')">
+              <span>🌊</span>
+              <strong>Flow</strong>
+              <small>25m · 5m</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card 2 -->
+      <div class="feature-card glass-card">
+        <div class="feature-header">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h3>Study Analytics</h3>
+          <p>Monitor daily break times and website categories. Map data onto interactive column lists and comparison charts.</p>
+        </div>
+        <div class="feature-graphic" style="height: 170px; padding: 16px 12px; flex-direction: column; justify-content: flex-end; gap: 8px;">
+          <div class="f-chart-bars">
+            <div class="f-chart-bar-group" onmouseover="showBarTooltip('Productivity', '2.5h')" onmouseout="hideBarTooltip()">
+              <div class="f-cbar green" style="--h: 50%;"></div>
+              <span class="f-cbar-label">Productivity</span>
+            </div>
+            <div class="f-chart-bar-group" onmouseover="showBarTooltip('Learning', '1.2h')" onmouseout="hideBarTooltip()">
+              <div class="f-cbar purple" style="--h: 24%;"></div>
+              <span class="f-cbar-label">Learning</span>
+            </div>
+            <div class="f-chart-bar-group" onmouseover="showBarTooltip('Communication', '0.5h')" onmouseout="hideBarTooltip()">
+              <div class="f-cbar blue" style="--h: 10%;"></div>
+              <span class="f-cbar-label">Comms</span>
+            </div>
+            <div class="f-chart-bar-group" onmouseover="showBarTooltip('Distraction', '3.5h')" onmouseout="hideBarTooltip()">
+              <div class="f-cbar red" style="--h: 70%;"></div>
+              <span class="f-cbar-label">Distraction</span>
+            </div>
+            <div class="f-chart-bar-group" onmouseover="showBarTooltip('Uncategorized', '0.3h')" onmouseout="hideBarTooltip()">
+              <div class="f-cbar gray" style="--h: 6%;"></div>
+              <span class="f-cbar-label">Uncat</span>
+            </div>
+          </div>
+          <div class="f-chart-tooltip" id="chartBarTooltip">Hover over a category to view hours</div>
+        </div>
+      </div>
+
+      <!-- Feature Card 3 -->
+      <div class="feature-card glass-card">
+        <div class="feature-header">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3>Rule Manager & PIN Lock</h3>
+          <p>Configure custom redirect schedules and limits (e.g. reddit.com), and lock rules securely behind a secure PIN code pad.</p>
+        </div>
+        <div class="feature-graphic" style="height: 170px; padding: 10px; position: relative; flex-direction: column; justify-content: flex-start; gap: 6px;">
+          <!-- Card Rules List -->
+          <div id="fRulesContainer" style="display: flex; flex-direction: column; gap: 6px; width: 100%; z-index: 5;">
+            <!-- Rule 1: Reddit -->
+            <div class="f-rule-card">
+              <div class="f-rule-logo">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#FF4500" class="f-rule-svg" style="flex-shrink: 0;">
+                  <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.24-1.72l1.37-4.3 3.79.8c.09 1.09 1 1.97 2.12 1.97 1.18 0 2.12-.94 2.12-2.12s-.94-2.12-2.12-2.12c-.9 0-1.66.56-1.97 1.34l-4.12-.87c-.24-.05-.48.09-.54.33l-1.5 4.7c-2.46.06-4.73.7-6.39 1.71-.56-.74-1.44-1.22-2.42-1.22-1.65 0-3 1.35-3 3 0 1.11.61 2.07 1.51 2.58-.06.3-.09.62-.09.94 0 3.86 4.43 7 9.88 7 5.46 0 9.89-3.14 9.89-7 0-.32-.03-.64-.09-.95.89-.5 1.5-1.46 1.5-2.57zm-18.75.25c0-.83.68-1.5 1.5-1.5s1.5.67 1.5 1.5-.68 1.5-1.5 1.5-1.5-.67-1.5-1.5zm11.5 5.5c-1.82 1.82-5.32 1.82-7.14 0-.15-.15-.15-.39 0-.54.15-.15.39-.15.54 0 1.52 1.52 4.54 1.52 6.06 0 .15-.15.39-.15.54 0 .15.15.15.39 0 .54zm-.25-4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                <div class="f-rule-text">
+                  <strong>reddit.com</strong>
+                  <small onclick="cycleRuleLimit(this)">30m limit</small>
+                </div>
+              </div>
+              <div class="f-rule-actions">
+                <button class="f-rule-btn-edit" onclick="showCardPinOverlay()" title="Edit Rule">✏️</button>
+                <span class="f-rule-badge" onclick="toggleRuleStatus(this)">Blocked</span>
+              </div>
+            </div>
+
+            <!-- Rule 2: Instagram -->
+            <div class="f-rule-card">
+              <div class="f-rule-logo">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="url(#instaGlowCard)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="f-rule-svg" style="flex-shrink: 0;">
+                  <defs>
+                    <linearGradient id="instaGlowCard" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#f9ce34" />
+                      <stop offset="50%" stop-color="#ee2a7b" />
+                      <stop offset="100%" stop-color="#6228d7" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3" />
+                </svg>
+                <div class="f-rule-text">
+                  <strong>instagram.com</strong>
+                  <small onclick="cycleRuleLimit(this)">15m limit</small>
+                </div>
+              </div>
+              <div class="f-rule-actions">
+                <button class="f-rule-btn-edit" onclick="showCardPinOverlay()" title="Edit Rule">✏️</button>
+                <span class="f-rule-badge" onclick="toggleRuleStatus(this)">Blocked</span>
+              </div>
+            </div>
+
+            <!-- Rule 3: TikTok -->
+            <div class="f-rule-card">
+              <div class="f-rule-logo">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" class="f-rule-svg" style="flex-shrink: 0; filter: drop-shadow(0 0 2px rgba(0, 242, 234, 0.4)) drop-shadow(0 0 2px rgba(254, 44, 85, 0.4));">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.95.84 2.19 1.4 3.49 1.62v3.9c-1.42-.09-2.8-.62-3.92-1.53v6.78c0 3.32-2.18 6.42-5.46 7.22-3.66.9-7.5-1.2-8.52-4.73-1.07-3.7 1.25-7.77 5.06-8.53.86-.17 1.74-.15 2.58.07v4.02c-.78-.29-1.65-.29-2.39.06-1.24.59-1.95 2.01-1.63 3.35.34 1.41 1.83 2.31 3.24 1.95 1.15-.3 1.93-1.38 1.92-2.58V0h.12z"/>
+                </svg>
+                <div class="f-rule-text">
+                  <strong>tiktok.com</strong>
+                  <small onclick="cycleRuleLimit(this)">10m limit</small>
+                </div>
+              </div>
+              <div class="f-rule-actions">
+                <button class="f-rule-btn-edit" onclick="showCardPinOverlay()" title="Edit Rule">✏️</button>
+                <span class="f-rule-badge" onclick="toggleRuleStatus(this)">Blocked</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card Lock Pad Overlay (mini PIN Pad!) -->
+          <div class="f-card-overlay hidden" id="fCardOverlay" style="z-index: 10;">
+            <div class="f-overlay-header">
+              <span style="font-size: 8px; font-weight: 800; color: var(--color-amber);">🔒 ENTER PIN</span>
+              <button class="f-close-overlay" onclick="hideCardPinOverlay()">✕</button>
+            </div>
+            <div class="f-mini-dots">
+              <div class="f-mdot" id="fMdot1"></div>
+              <div class="f-mdot" id="fMdot2"></div>
+              <div class="f-mdot" id="fMdot3"></div>
+              <div class="f-mdot" id="fMdot4"></div>
+            </div>
+            <div class="f-mini-keypad">
+              <button onclick="pressMiniPin('1')">1</button>
+              <button onclick="pressMiniPin('2')">2</button>
+              <button onclick="pressMiniPin('3')">3</button>
+              <button onclick="pressMiniPin('4')">4</button>
+              <button onclick="pressMiniPin('5')">5</button>
+              <button onclick="pressMiniPin('6')">6</button>
+              <button onclick="pressMiniPin('7')">7</button>
+              <button onclick="pressMiniPin('8')">8</button>
+              <button onclick="pressMiniPin('9')">9</button>
+              <button onclick="clearMiniPin()">⌫</button>
+              <button onclick="pressMiniPin('0')">0</button>
+              <button onclick="submitMiniPin()" style="background: var(--color-green); color: #000;">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card 4 -->
+      <div class="feature-card glass-card">
+        <div class="feature-header">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          </div>
+          <h3>Advanced Site Tweaks</h3>
+          <p>Remove UI distraction feeds, shorts, or comments on supported sites like YouTube, Reddit, and Instagram dynamically.</p>
+        </div>
+        <div class="feature-graphic" style="height: auto; padding: 14px; flex-direction: column; gap: 12px; align-items: stretch; background: transparent; border: none; box-shadow: none;">
+          <div id="fTweaksPreview" style="display: flex; flex-direction: column; gap: 12px; width: 100%; transition: var(--transition-smooth);">
+            
+            <!-- YouTube Tweak Card -->
+            <div class="f-tweaks-card">
+              <div class="f-tweak-header" style="display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-bottom: 6px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#FF0000" style="flex-shrink: 0;">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507A3.003 3.003 0 0 0 .502 6.164C0 8.035 0 12 0 12s0 3.965.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.389-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.965 24 12 24 12s0-3.965-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span style="color: var(--color-red); font-weight: 800; font-size: 11px;">YouTube</span>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Shorts</span>
+                <label class="mock-switch">
+                  <input type="checkbox" checked id="tweakShorts">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Home Feed</span>
+                <label class="mock-switch">
+                  <input type="checkbox" id="tweakHomeFeed">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Related Videos</span>
+                <label class="mock-switch">
+                  <input type="checkbox" id="tweakRelated">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Instagram Tweak Card -->
+            <div class="f-tweaks-card">
+              <div class="f-tweak-header" style="display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-bottom: 6px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="url(#instaGlowTweak)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+                  <defs>
+                    <linearGradient id="instaGlowTweak" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#f9ce34" />
+                      <stop offset="50%" stop-color="#ee2a7b" />
+                      <stop offset="100%" stop-color="#6228d7" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3" />
+                </svg>
+                <span style="color: var(--color-purple); font-weight: 800; font-size: 11px;">Instagram</span>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Reels Tab</span>
+                <label class="mock-switch">
+                  <input type="checkbox" checked>
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Explore Grid</span>
+                <label class="mock-switch">
+                  <input type="checkbox">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Comments</span>
+                <label class="mock-switch">
+                  <input type="checkbox">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Reddit Tweak Card -->
+            <div class="f-tweaks-card">
+              <div class="f-tweak-header" style="display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-bottom: 6px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#FF4500" style="flex-shrink: 0;">
+                  <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.24-1.72l1.37-4.3 3.79.8c.09 1.09 1 1.97 2.12 1.97 1.18 0 2.12-.94 2.12-2.12s-.94-2.12-2.12-2.12c-.9 0-1.66.56-1.97 1.34l-4.12-.87c-.24-.05-.48.09-.54.33l-1.5 4.7c-2.46.06-4.73.7-6.39 1.71-.56-.74-1.44-1.22-2.42-1.22-1.65 0-3 1.35-3 3 0 1.11.61 2.07 1.51 2.58-.06.3-.09.62-.09.94 0 3.86 4.43 7 9.88 7 5.46 0 9.89-3.14 9.89-7 0-.32-.03-.64-.09-.95.89-.5 1.5-1.46 1.5-2.57zm-18.75.25c0-.83.68-1.5 1.5-1.5s1.5.67 1.5 1.5-.68 1.5-1.5 1.5-1.5-.67-1.5-1.5zm11.5 5.5c-1.82 1.82-5.32 1.82-7.14 0-.15-.15-.15-.39 0-.54.15-.15.39-.15.54 0 1.52 1.52 4.54 1.52 6.06 0 .15-.15.39-.15.54 0 .15.15.15.39 0 .54zm-.25-4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                <span style="color: var(--color-amber); font-weight: 800; font-size: 11px;">Reddit</span>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Popular Feed</span>
+                <label class="mock-switch">
+                  <input type="checkbox" checked>
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Comments</span>
+                <label class="mock-switch">
+                  <input type="checkbox">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+              <div class="f-tweak-row">
+                <span>Hide Right Sidebar</span>
+                <label class="mock-switch">
+                  <input type="checkbox">
+                  <div class="mock-switch-track"></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Shared Tweaks/Settings -->
+            <div class="f-tweak-row" style="margin-top: 4px; padding: 8px 12px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 8px; width: 100%;">
+              <span style="font-size: 10.5px; font-weight: 700;">Black & White Mode</span>
+              <label class="mock-switch">
+                <input type="checkbox" id="tweakGrayscale" onchange="toggleCardGrayscale(this)">
+                <div class="mock-switch-track"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card 5 -->
+      <div class="feature-card glass-card feature-card-double">
+        <div class="feature-header">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14"></path><path d="M5 22h14"></path><path d="M19 2v4c0 3.3-2.7 6-6 6s-6-2.7-6-6V2"></path><path d="M5 22v-4c0-3.3 2.7-6 6-6s6 2.7 6 6v4"></path></svg>
+          </div>
+          <h3>Daily Timeline Breakdown</h3>
+          <p>Examine active studying patterns and block history throughout the day with a horizontal activity timeline.</p>
+        </div>
+        
+        <div class="dashboard-panel">
+          <!-- Timeline Header -->
+          <div class="db-timeline-hdr">
+            <span>Monday, May 25</span>
+            <span class="db-timeline-hdr-right">24-Hour Active Timeline</span>
+          </div>
+
+          <!-- Timeline Track -->
+          <div>
+            <div class="db-timeline-track">
+              <div class="db-timeline-ticks">
+                <!-- Red ticks around 12 AM -->
+                <div class="db-tick red" style="left: 2%;"></div>
+                <div class="db-tick red" style="left: 3%;"></div>
+                <div class="db-tick red" style="left: 4%;"></div>
+                <div class="db-tick red" style="left: 5%;"></div>
+                <div class="db-tick red" style="left: 6%;"></div>
+                <!-- Red ticks around 12 PM -->
+                <div class="db-tick red" style="left: 52%;"></div>
+                <div class="db-tick red" style="left: 53%;"></div>
+                <div class="db-tick red" style="left: 54%;"></div>
+                <div class="db-tick red" style="left: 55%;"></div>
+                <div class="db-tick red" style="left: 56%;"></div>
+                <!-- Green ticks around 6 PM -->
+                <div class="db-tick green" style="left: 66%;"></div>
+                <div class="db-tick green" style="left: 67%;"></div>
+                <div class="db-tick green" style="left: 68%;"></div>
+                <div class="db-tick green" style="left: 69%;"></div>
+              </div>
+            </div>
+            <div class="db-timeline-scale">
+              <span>12 AM</span>
+              <span>6 AM</span>
+              <span>12 PM</span>
+              <span>6 PM</span>
+              <span>11:59 PM</span>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="db-stats-grid">
+            <div class="db-stat-card">
+              <span class="db-stat-lbl">Total Tracked</span>
+              <span class="db-stat-val">6.7h</span>
+            </div>
+            <div class="db-stat-card">
+              <span class="db-stat-lbl">Productivity</span>
+              <span class="db-stat-val green">51m</span>
+            </div>
+            <div class="db-stat-card">
+              <span class="db-stat-lbl">Learning</span>
+              <span class="db-stat-val purple">0m</span>
+            </div>
+            <div class="db-stat-card">
+              <span class="db-stat-lbl">Communication</span>
+              <span class="db-stat-val blue">0m</span>
+            </div>
+            <div class="db-stat-card">
+              <span class="db-stat-lbl">Distraction</span>
+              <span class="db-stat-val red">5.6h</span>
+            </div>
+          </div>
+
+          <!-- Category Ratio Bar -->
+          <div class="db-ratio-bar">
+            <div class="db-ratio-seg green" style="width: 15%;" title="Productivity"></div>
+            <div class="db-ratio-seg red" style="width: 80%;" title="Distraction"></div>
+            <div class="db-ratio-seg grey" style="width: 5%;" title="Uncategorized"></div>
+          </div>
+
+          <!-- Category Legend Dots -->
+          <div class="db-legend-row">
+            <div class="db-legend-item">
+              <div class="db-legend-dot green"></div>
+              <span>Productivity</span>
+            </div>
+            <div class="db-legend-item">
+              <div class="db-legend-dot purple"></div>
+              <span>Learning</span>
+            </div>
+            <div class="db-legend-item">
+              <div class="db-legend-dot blue"></div>
+              <span>Communication</span>
+            </div>
+            <div class="db-legend-item">
+              <div class="db-legend-dot red"></div>
+              <span>Distraction</span>
+            </div>
+            <div class="db-legend-item">
+              <div class="db-legend-dot grey"></div>
+              <span>Uncategorized</span>
+            </div>
+          </div>
+
+          <!-- Site Grid -->
+          <div class="db-sites-grid">
+            <!-- 1. Reddit -->
+            <div class="db-site-card" style="border-left-color: var(--color-red);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#FF4500" style="flex-shrink: 0;">
+                  <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.24-1.72l1.37-4.3 3.79.8c.09 1.09 1 1.97 2.12 1.97 1.18 0 2.12-.94 2.12-2.12s-.94-2.12-2.12-2.12c-.9 0-1.66.56-1.97 1.34l-4.12-.87c-.24-.05-.48.09-.54.33l-1.5 4.7c-2.46.06-4.73.7-6.39 1.71-.56-.74-1.44-1.22-2.42-1.22-1.65 0-3 1.35-3 3 0 1.11.61 2.07 1.51 2.58-.06.3-.09.62-.09.94 0 3.86 4.43 7 9.88 7 5.46 0 9.89-3.14 9.89-7 0-.32-.03-.64-.09-.95.89-.5 1.5-1.46 1.5-2.57zm-18.75.25c0-.83.68-1.5 1.5-1.5s1.5.67 1.5 1.5-.68 1.5-1.5 1.5-1.5-.67-1.5-1.5zm11.5 5.5c-1.82 1.82-5.32 1.82-7.14 0-.15-.15-.15-.39 0-.54.15-.15.39-.15.54 0 1.52 1.52 4.54 1.52 6.06 0 .15-.15.39-.15.54 0 .15.15.15.39 0 .54zm-.25-4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                <span class="db-site-name">reddit.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">3.5h</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. YouTube -->
+            <div class="db-site-card" style="border-left-color: var(--color-red);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#FF0000" style="flex-shrink: 0;">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507A3.003 3.003 0 0 0 .502 6.164C0 8.035 0 12 0 12s0 3.965.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.389-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.965 24 12 24 12s0-3.965-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span class="db-site-name">youtube.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">2.1h</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3. Canva -->
+            <div class="db-site-card" style="border-left-color: var(--color-green);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="flex-shrink: 0;">
+                  <defs>
+                    <linearGradient id="canvaGradientCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00C4CC"/>
+                      <stop offset="100%" stop-color="#7D2AE8"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="12" cy="12" r="10" fill="url(#canvaGradientCard)" />
+                  <path d="M12.5 8c-1.5 0-2.2 1-2.2 2.2s.7 2.2 2.2 2.2c.8 0 1.4-.5 1.4-1h-1c0 .2-.2.3-.4.3-.5 0-.8-.4-.8-1.5s.3-1.5.8-1.5c.2 0 .4.1.4.3h1c0-.5-.6-1-1.4-1z" fill="#FFF"/>
+                </svg>
+                <span class="db-site-name">canva.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">37m</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 4. iLovePDF -->
+            <div class="db-site-card" style="border-left-color: var(--text-muted);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#E23E2A" style="flex-shrink: 0;">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span class="db-site-name">ilovepdf.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">7m</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 5. Gemini -->
+            <div class="db-site-card" style="border-left-color: var(--color-green);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="flex-shrink: 0;">
+                  <defs>
+                    <linearGradient id="geminiGradientCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#9BC5FF"/>
+                      <stop offset="50%" stop-color="#2B7FFF"/>
+                      <stop offset="100%" stop-color="#FF9E9E"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 3c0 4.5 3.5 8 8 8-4.5 0-8 3.5-8 8 0-4.5-3.5-8-8-8 4.5 0 8-3.5 8-8z" fill="url(#geminiGradientCard)"/>
+                </svg>
+                <span class="db-site-name">gemini.google.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">4m</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 6. Chrome Web Store -->
+            <div class="db-site-card" style="border-left-color: var(--color-green);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="flex-shrink: 0;">
+                  <rect x="3" y="6" width="18" height="15" rx="3" fill="#3B82F6" />
+                  <path d="M8 6V4a4 4 0 0 1 8 0v2" fill="none" stroke="#60A5FA" stroke-width="2" />
+                  <circle cx="12" cy="13.5" r="4" fill="#FAFAFA" />
+                  <circle cx="12" cy="13.5" r="1.5" fill="#3B82F6" />
+                  <path d="M12 9.5c1.8 0 3.5 1.5 3.5 3.5h-3.5v-3.5z" fill="#EF4444" />
+                  <path d="M12 17c-1.8 0-3.5-1.5-3.5-3.5h3.5v3.5z" fill="#F59E0B" />
+                  <path d="M8.5 13.5c0-1.8 1.5-3.5 3-3.5v3.5h-3z" fill="#10B981" />
+                </svg>
+                <span class="db-site-name">chromewebstore.google.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">4m</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 7. RapidSave -->
+            <div class="db-site-card" style="border-left-color: var(--color-red);">
+              <div class="db-site-info">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#E11D48" style="flex-shrink: 0;">
+                  <rect width="24" height="24" rx="6" fill="#E11D48"/>
+                  <path d="M12 5v10M8 11l4 4 4-4M6 18h12" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="db-site-name">rapidsave.com</span>
+              </div>
+              <div class="db-site-right">
+                <span class="db-site-time-badge">3m</span>
+                <button class="db-site-gear">
+                  <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Grid Section -->
+  <section class="section-reviews" id="reviews">
+    <h2 class="section-title">Loved by Focused Minds</h2>
+    <p class="section-subtitle">Real feedback gathered from store ratings. See how Flow is helping users around the world get things done.</p>
+    
+    <div class="reviews-grid">
+      <!-- Review 1: Vishal -->
+      <div class="review-card glass-card">
+        <div class="review-header">
+          <div class="review-meta">
+            <div class="review-badge-source">🌐</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span class="review-author">Vishal</span>
+              <span class="review-date" style="font-size: 0.76rem; color: var(--text-muted); font-weight: 500;">May 2, 2026</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+            <span class="review-stars">★★★★☆</span>
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Edge Store</span>
+          </div>
+        </div>
+        <p class="review-body">
+          "Works perfectly on Edge. Zero complaints but I want to block specific YouTube channels too."
+        </p>
+        <div class="dev-response">
+          <div class="dev-response-header">
+            <span class="dev-name">↳ Response from Prime vsr</span>
+            <span class="dev-date">May 5, 2026</span>
+          </div>
+          <p class="dev-body">
+            "Thanks for the review! Channel blocking is definitely on the wish list. I appreciate the feedback and support!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 2: CONFUSED -->
+      <div class="review-card glass-card">
+        <div class="review-header">
+          <div class="review-meta">
+            <div class="review-badge-source">🌐</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span class="review-author">CONFUSED</span>
+              <span class="review-date" style="font-size: 0.76rem; color: var(--text-muted); font-weight: 500;">May 2, 2026</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+            <span class="review-stars">★★★★★</span>
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Edge Store</span>
+          </div>
+        </div>
+        <p class="review-body">
+          "I appreciate that it doesn't ask for my email and No subscriptions, no ads."
+        </p>
+        <div class="dev-response">
+          <div class="dev-response-header">
+            <span class="dev-name">↳ Response from Prime vsr</span>
+            <span class="dev-date">May 5, 2026</span>
+          </div>
+          <p class="dev-body">
+            "Glad you noticed! Privacy and simplicity are the top priorities. Enjoy the distraction-free sessions!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 3: Sweta -->
+      <div class="review-card glass-card">
+        <div class="review-header">
+          <div class="review-meta">
+            <div class="review-badge-source">🌐</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span class="review-author">Sweta</span>
+              <span class="review-date" style="font-size: 0.76rem; color: var(--text-muted); font-weight: 500;">May 1, 2026</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+            <span class="review-stars">★★★★☆</span>
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Edge Store</span>
+          </div>
+        </div>
+        <p class="review-body">
+          <strong>better than the paid apps.</strong><br>
+          "Deleted stayfree for this.i'm not paying a monthly subscription just to hide a webpage element. Focusflow does it completely for free."
+        </p>
+        <div class="dev-response">
+          <div class="dev-response-header">
+            <span class="dev-name">↳ Response from Prime vsr</span>
+            <span class="dev-date">May 1, 2026</span>
+          </div>
+          <p class="dev-body">
+            "Take that monthly subscription money and buy a pizza instead. Glad you like it!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Footer Banner -->
+  <section class="section-download" id="download" style="padding-bottom: 5rem;">
+    <div class="download-footer-banner glass-card">
+      <div class="df-left">
+        <h3 class="df-title">Reclaim Your Attention Today</h3>
+        <p class="df-desc">Install Flow for free and customize your deep study environment in under a minute.</p>
+      </div>
+      <div class="df-right">
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/flow-website-manager/" target="_blank" class="btn btn-primary">
+          Firefox Extension
+        </a>
+        <a href="https://microsoftedge.microsoft.com/addons/detail/jlcdkibfogehgkbhkkkglifbanenkmic" target="_blank" class="btn btn-secondary">
+          Edge Extension
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="./icons/icon16.png" alt="Flow Icon" style="width: 16px; height: 16px;">
+        <span class="footer-logo-text">Flow Extension</span>
+        <span>© 2026. Free & Open Source.</span>
+      </div>
+      <ul class="footer-right">
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank">GitHub</a></li>
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow/blob/main/LICENSE" target="_blank">License</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    /* =========================================================================
+       1. Global Mouse Spotlight Positioning Tracker
+       ========================================================================= */
+    let spotlightTimeout;
+    document.addEventListener('mousemove', (e) => {
+      if (spotlightTimeout) return;
+      spotlightTimeout = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        spotlightTimeout = null;
+      });
+    });
+
+    /* =========================================================================
+       2. Light & Dark Theme Swapper
+       ========================================================================= */
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('theme-sun-icon');
+    const moonIcon = document.getElementById('theme-moon-icon');
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      if (isLight) {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    });
+
+    /* =========================================================================
+       3. Mockup Header Actions & Locks
+       ========================================================================= */
+    const btnShowAnalytics = document.getElementById('btnShowAnalytics');
+    const btnShowSettings = document.getElementById('btnShowSettings');
+    const btnLock = document.getElementById('btnLock');
+    const mockOverlay = document.getElementById('mockOverlay');
+    const pinError = document.getElementById('pinError');
+    const mockSettingsPanel = document.getElementById('mockSettingsPanel');
+    const btnCloseSettings = document.getElementById('btnCloseSettings');
+    const btnSaveSettings = document.getElementById('btnSaveSettings');
+
+    let isUnlocked = false;
+    let pinInput = "";
+
+    // Header Analytics Action (Smooth Scroll to Bento Grid)
+    btnShowAnalytics.addEventListener('click', (e) => {
+      e.preventDefault();
+      const featuresSection = document.getElementById('features');
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Header Settings gear Action
+    btnShowSettings.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!isUnlocked) {
+        showOverlay();
+        return;
+      }
+      // Toggle display of settings panel inside the Focus Mode card
+      if (mockSettingsPanel.style.display === 'none') {
+        mockSettingsPanel.style.display = 'flex';
+      } else {
+        mockSettingsPanel.style.display = 'none';
+      }
+    });
+
+    if (btnCloseSettings) {
+      btnCloseSettings.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mockSettingsPanel.style.display = 'none';
+      });
+    }
+
+    // Header Shield Lock Action
+    btnLock.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lockSettings();
+    });
+
+    /* =========================================================================
+       4. Keypad Lock Overlay Screen Controller
+       ========================================================================= */
+    function showOverlay() {
+      mockOverlay.classList.remove('hidden');
+      pinInput = "";
+      updatePinDots();
+      pinError.classList.remove('visible');
+    }
+
+    function hideOverlay() {
+      mockOverlay.classList.add('hidden');
+    }
+
+    function lockSettings() {
+      isUnlocked = false;
+      showOverlay();
+      mockSettingsPanel.style.display = 'none';
+    }
+
+    function pressPin(digit) {
+      if (pinInput.length < 4) {
+        pinInput += digit;
+        updatePinDots();
+        pinError.classList.remove('visible');
+      }
+    }
+
+    function clearPin() {
+      if (pinInput.length > 0) {
+        pinInput = pinInput.slice(0, -1);
+        updatePinDots();
+      }
+    }
+
+    function updatePinDots() {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById(`dot${i}`);
+        if (i <= pinInput.length) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function submitPin() {
+      if (pinInput === "1234") {
+        isUnlocked = true;
+        hideOverlay();
+        mockLogoDot.classList.add('active');
+      } else {
+        pinInput = "";
+        updatePinDots();
+        pinError.classList.add('visible');
+      }
+    }
+
+    // Initialize in locked state
+    showOverlay();
+
+    /* =========================================================================
+       5. Countdown timer logic (Focus Mode)
+       ========================================================================= */
+    const btnTimerStart = document.getElementById('btnTimerStart');
+    const btnTimerStop = document.getElementById('btnTimerStop');
+    const timerClock = document.getElementById('timerClock');
+    const timerCircle = document.getElementById('timerCircle');
+    const timerPhase = document.getElementById('timerPhase');
+    const timerTitle = document.getElementById('timerTitle');
+    const timerSub = document.getElementById('timerSub');
+    const timerCycles = document.getElementById('timerCycles');
+    const mockLogoDot = document.getElementById('mockLogoDot');
+    const timerContainer = document.getElementById('timerContainer');
+
+    let timerInterval = null;
+    let workMinutes = 25;
+    let breakMinutes = 5;
+    let targetCycles = 4;
+    let completedCycles = 0;
+    
+    let secondsLeft = workMinutes * 60;
+    let totalTimerDuration = secondsLeft;
+    let isTimerRunning = false;
+    let currentPhase = "work"; // work or break
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(secondsLeft / 60);
+      const secs = secondsLeft % 60;
+      timerClock.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      
+      // Update SVG circular ring (radius r=32, perimeter = 201)
+      const strokeDashoffset = 201 - (secondsLeft / totalTimerDuration) * 201;
+      timerCircle.style.strokeDashoffset = strokeDashoffset;
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      btnTimerStart.innerText = "⏸ Pause Focus";
+      btnTimerStop.style.display = "inline-block";
+      mockLogoDot.classList.add('active');
+      timerContainer.classList.add('work-active');
+      timerTitle.innerText = "Focusing Active";
+      timerSub.innerText = "Distractions are blocked. Stay in the zone.";
+
+      timerInterval = setInterval(() => {
+        if (secondsLeft > 0) {
+          secondsLeft--;
+          updateTimerDisplay();
+        } else {
+          // Timer finished a phase
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          
+          if (currentPhase === "work") {
+            completedCycles++;
+            timerCycles.innerText = `${completedCycles} done`;
+            if (completedCycles >= targetCycles) {
+              // Target achieved
+              clearInterval(timerInterval);
+              isTimerRunning = false;
+              btnTimerStart.innerText = "▶ Start Focus";
+              btnTimerStop.style.display = "none";
+              mockLogoDot.classList.remove('active');
+              timerContainer.classList.remove('work-active');
+              
+              timerTitle.innerText = "Target Achieved! 🎉";
+              timerTitle.style.color = "var(--color-green)";
+              timerSub.innerText = "Congratulations! You reached your study cycle target.";
+              
+              // Reset the clock display but keep the success title visible
+              secondsLeft = workMinutes * 60;
+              totalTimerDuration = secondsLeft;
+              currentPhase = "work";
+              timerPhase.innerText = "Target Reached!";
+              timerPhase.style.color = "var(--color-green)";
+              timerCircle.style.stroke = "var(--color-green)";
+              updateTimerDisplay();
+              
+              // Auto restore to normal start state after 5 seconds
+              setTimeout(() => {
+                if (!isTimerRunning && timerTitle.innerText === "Target Achieved! 🎉") {
+                  timerTitle.style.color = "var(--text-primary)";
+                  resetTimer();
+                }
+              }, 5000);
+            } else {
+              // Transition to break
+              currentPhase = "break";
+              timerPhase.innerText = "Break Session";
+              timerPhase.style.color = "var(--color-amber)";
+              timerCircle.style.stroke = "var(--color-amber)";
+              secondsLeft = breakMinutes * 60;
+              totalTimerDuration = secondsLeft;
+              updateTimerDisplay();
+              timerTitle.innerText = "Take a break!";
+              timerSub.innerText = "Gently step away from your screens.";
+              startTimer();
+            }
+          } else {
+            // Transition back to work
+            currentPhase = "work";
+            timerPhase.innerText = "Work Session";
+            timerPhase.style.color = "var(--color-green)";
+            timerCircle.style.stroke = "var(--color-green)";
+            secondsLeft = workMinutes * 60;
+            totalTimerDuration = secondsLeft;
+            updateTimerDisplay();
+            startTimer();
+          }
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      btnTimerStart.innerText = "▶ Start Focus";
+      mockLogoDot.classList.remove('active');
+      timerTitle.innerText = "Session Paused";
+      timerSub.innerText = "Click play to resume deep work.";
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      secondsLeft = workMinutes * 60;
+      totalTimerDuration = secondsLeft;
+      currentPhase = "work";
+      
+      timerPhase.innerText = "Work Session";
+      timerPhase.style.color = "var(--color-green)";
+      timerCircle.style.stroke = "var(--color-green)";
+      
+      updateTimerDisplay();
+      
+      btnTimerStart.innerText = "▶ Start Focus";
+      btnTimerStop.style.display = "none";
+      mockLogoDot.classList.remove('active');
+      timerContainer.classList.remove('work-active');
+      timerTitle.innerText = "Ready to focus?";
+      timerSub.innerText = `${workMinutes}m work · ${breakMinutes}m short break`;
+    }
+
+    btnTimerStart.addEventListener('click', () => {
+      if (isTimerRunning) {
+        pauseTimer();
+      } else {
+        startTimer();
+      }
+    });
+
+    btnTimerStop.addEventListener('click', () => {
+      resetTimer();
+    });
+
+    /* =========================================================================
+       6. Settings Form saving preferences
+       ========================================================================= */
+    const inputWorkTime = document.getElementById('inputWorkTime');
+    const inputBreakTime = document.getElementById('inputBreakTime');
+    const inputCycles = document.getElementById('inputCycles');
+
+    if (btnSaveSettings) {
+      btnSaveSettings.addEventListener('click', () => {
+        const w = parseInt(inputWorkTime.value);
+        const b = parseInt(inputBreakTime.value);
+        const c = parseInt(inputCycles.value);
+        
+        let hasError = false;
+        let errorMsg = "";
+        
+        if (isNaN(w) || w <= 0 || w > 120) {
+          inputWorkTime.value = 25;
+          hasError = true;
+          errorMsg = "Work time reset to 25m.";
+        }
+        if (isNaN(b) || b < 0 || b > 60) {
+          inputBreakTime.value = 5;
+          hasError = true;
+          errorMsg = (errorMsg ? errorMsg + " " : "") + "Break time reset to 5m.";
+        }
+        if (isNaN(c) || c <= 0 || c > 10) {
+          inputCycles.value = 4;
+          hasError = true;
+          errorMsg = (errorMsg ? errorMsg + " " : "") + "Cycles reset to 4.";
+        }
+
+        workMinutes = parseInt(inputWorkTime.value);
+        breakMinutes = parseInt(inputBreakTime.value);
+        targetCycles = parseInt(inputCycles.value);
+
+        resetTimer();
+        
+        const feedback = document.getElementById('settingsFeedback');
+        if (feedback) {
+          feedback.style.display = 'block';
+          if (hasError) {
+            feedback.style.color = 'var(--color-red)';
+            feedback.style.background = 'var(--color-red-bg)';
+            feedback.innerText = "Error: " + errorMsg;
+          } else {
+            feedback.style.color = 'var(--color-green)';
+            feedback.style.background = 'var(--color-green-bg)';
+            feedback.innerText = "Preferences saved!";
+          }
+          // Close panel and hide feedback after 1.5 seconds if successful
+          setTimeout(() => {
+            feedback.style.display = 'none';
+            if (!hasError) {
+              mockSettingsPanel.style.display = 'none';
+            }
+          }, 1800);
+        } else {
+          mockSettingsPanel.style.display = 'none';
+        }
+      });
+    }
+
+    /* =========================================================================
+       7. Tabs Switching & Donut Chart segments updates
+       ========================================================================= */
+    const tabToday = document.getElementById('tabToday');
+    const tabTotal = document.getElementById('tabTotal');
+    const mockGoalSection = document.getElementById('mockGoalSection');
+    const mockListTitle = document.getElementById('mockListTitle');
+    const donutTotalText = document.getElementById('donutTotalText');
+    const donutLabelText = document.getElementById('donutLabelText');
+    
+    const siteTimeReddit = document.getElementById('siteTimeReddit');
+    const siteTimeYoutube = document.getElementById('siteTimeYoutube');
+    const siteTimeCanva = document.getElementById('siteTimeCanva');
+    const siteTimeGithub = document.getElementById('siteTimeGithub');
+    const siteTimeStack = document.getElementById('siteTimeStack');
+    const siteTimeInstagram = document.getElementById('siteTimeInstagram');
+    const siteTimeTiktok = document.getElementById('siteTimeTiktok');
+
+    let currentTab = "today"; // "today" or "total"
+
+    // Mock data state for tracked sites
+    const siteData = {
+      Reddit: {
+        domain: "reddit.com",
+        todayTime: 0.8, // in hours
+        allTimeTime: 3.8 * 24, // 3.8 days in hours
+        category: "distraction"
+      },
+      Youtube: {
+        domain: "youtube.com",
+        todayTime: 3.5, // in hours
+        allTimeTime: 9.6 * 24, // 9.6 days in hours
+        category: "distraction"
+      },
+      Canva: {
+        domain: "canva.com",
+        todayTime: 0.6, // in hours
+        allTimeTime: 1.1 * 24, // 1.1 days in hours
+        category: "productivity"
+      },
+      Github: {
+        domain: "github.com",
+        todayTime: 2.5, // in hours
+        allTimeTime: 5.2 * 24, // 5.2 days in hours
+        category: "productivity"
+      },
+      StackOverflow: {
+        domain: "stackoverflow.com",
+        todayTime: 1.2, // in hours
+        allTimeTime: 1.8 * 24, // 1.8 days in hours
+        category: "learning"
+      },
+      Instagram: {
+        domain: "instagram.com",
+        todayTime: 0.4, // in hours
+        allTimeTime: 2.5 * 24, // 2.5 days in hours
+        category: "distraction"
+      },
+      Tiktok: {
+        domain: "tiktok.com",
+        todayTime: 0.2, // in hours
+        allTimeTime: 4.2 * 24, // 4.2 days in hours
+        category: "distraction"
+      }
+    };
+
+    // Category colors configuration
+    const categoryColors = {
+      productivity: "#05D581",
+      learning: "#A855F7",
+      distraction: "#F46B7A",
+      communication: "#5C9CFC",
+      uncategorized: "#71717A"
+    };
+
+    function updateDonutChart() {
+      // Calculate category totals based on state
+      const totals = {
+        productivity: 0,
+        learning: 0,
+        distraction: 0,
+        communication: 0,
+        uncategorized: 0
+      };
+
+      let grandTotalHours = 0;
+
+      for (const siteKey in siteData) {
+        const site = siteData[siteKey];
+        const time = currentTab === "today" ? site.todayTime : site.allTimeTime;
+        totals[site.category] += time;
+        grandTotalHours += time;
+      }
+
+      // Add static communication chat stats (e.g. Slack/Discord) for design richness
+      if (currentTab === "today") {
+        totals.communication = 0.5; // 0.5h
+      } else {
+        totals.communication = 2.4 * 24; // 2.4 days
+      }
+      grandTotalHours += totals.communication;
+
+      // Format total display text
+      let totalStr = "";
+      if (currentTab === "today") {
+        totalStr = grandTotalHours.toFixed(1) + "h";
+      } else {
+        totalStr = (grandTotalHours / 24).toFixed(0) + "d";
+      }
+      donutTotalText.innerText = totalStr;
+
+      // Recreate SVG segments
+      const svg = document.getElementById('mockDonutSvg');
+      while (svg.children.length > 1) {
+        svg.removeChild(svg.lastChild);
+      }
+
+      const perimeter = 2 * Math.PI * 40; // 251.2
+      const categoriesOrder = ["productivity", "learning", "communication", "distraction", "uncategorized"];
+      
+      let dashOffset = 0;
+      
+      categoriesOrder.forEach(cat => {
+        const value = totals[cat];
+        if (value > 0) {
+          const percentage = value / grandTotalHours;
+          const segmentLength = percentage * perimeter;
+          
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("cx", "50");
+          circle.setAttribute("cy", "50");
+          circle.setAttribute("r", "40");
+          circle.setAttribute("fill", "none");
+          circle.setAttribute("stroke", categoryColors[cat]);
+          circle.setAttribute("stroke-width", "12");
+          circle.setAttribute("class", "mock-donut-slice");
+          
+          // Animate slices using stroke transitions
+          circle.setAttribute("stroke-dasharray", `${segmentLength.toFixed(1)} ${perimeter.toFixed(1)}`);
+          circle.setAttribute("stroke-dashoffset", (-dashOffset).toFixed(1));
+          
+          // Tooltip updates
+          const valStr = currentTab === "today" ? value.toFixed(1) + "h" : (value / 24).toFixed(1) + "d";
+          circle.addEventListener('mouseover', () => {
+            showDonutTooltip(cat.toUpperCase(), valStr, categoryColors[cat]);
+          });
+          circle.addEventListener('mouseout', () => {
+            hideDonutTooltip(totalStr);
+          });
+
+          svg.appendChild(circle);
+          dashOffset += segmentLength;
+        }
+      });
+
+      // Update Legend list
+      const legendContainer = document.getElementById('mockLegendList');
+      legendContainer.innerHTML = "";
+
+      categoriesOrder.forEach(cat => {
+        const value = totals[cat];
+        if (value > 0) {
+          const valStr = currentTab === "today" ? value.toFixed(1) + "h" : (value / 24).toFixed(1) + "d";
+          
+          const row = document.createElement('div');
+          row.className = "mock-legend-row";
+          row.innerHTML = `
+            <div class="mock-legend-dot" style="background: ${categoryColors[cat]}; box-shadow: 0 0 6px ${categoryColors[cat]};"></div>
+            <span class="mock-legend-name">${cat.charAt(0).toUpperCase() + cat.slice(1)}</span>
+            <span class="mock-legend-val">${valStr}</span>
+          `;
+          
+          row.addEventListener('mouseover', () => {
+            showDonutTooltip(cat.toUpperCase(), valStr, categoryColors[cat]);
+          });
+          row.addEventListener('mouseout', () => {
+            hideDonutTooltip(totalStr);
+          });
+
+          legendContainer.appendChild(row);
+        }
+      });
+    }
+
+    function showDonutTooltip(label, val, color) {
+      donutTotalText.innerText = val;
+      donutLabelText.innerText = label;
+      donutLabelText.style.color = color;
+    }
+
+    function hideDonutTooltip(totalStr) {
+      donutTotalText.innerText = totalStr;
+      donutLabelText.innerText = currentTab === "today" ? "Today" : "Total";
+      donutLabelText.style.color = "var(--text-muted)";
+    }
+
+    function selectMockTab(tab) {
+      currentTab = tab;
+      if (tab === 'today') {
+        tabToday.classList.add('active');
+        tabTotal.classList.remove('active');
+        mockGoalSection.style.display = 'none';
+        mockListTitle.innerText = "ALL SITES TODAY (CLICK TAG TO EDIT)";
+        
+        // Show Today site list times
+        siteTimeReddit.innerText = siteData.Reddit.todayTime.toFixed(1) + "h";
+        siteTimeYoutube.innerText = siteData.Youtube.todayTime.toFixed(1) + "h";
+        siteTimeCanva.innerText = siteData.Canva.todayTime.toFixed(1) + "h";
+        siteTimeGithub.innerText = siteData.Github.todayTime.toFixed(1) + "h";
+        siteTimeStack.innerText = siteData.StackOverflow.todayTime.toFixed(1) + "h";
+        siteTimeInstagram.innerText = siteData.Instagram.todayTime.toFixed(1) + "h";
+        siteTimeTiktok.innerText = siteData.Tiktok.todayTime.toFixed(1) + "h";
+      } else {
+        tabToday.classList.remove('active');
+        tabTotal.classList.add('active');
+        mockGoalSection.style.display = 'block';
+        mockListTitle.innerText = "ALL SITES ALL TIME (CLICK TAG TO EDIT)";
+        
+        // Show All Time site list times (formatted like dashboard: 9d 14h etc.)
+        siteTimeReddit.innerText = "3d 18h";
+        siteTimeYoutube.innerText = "9d 14h";
+        siteTimeCanva.innerText = "1d 2h";
+        siteTimeGithub.innerText = "5d 5h";
+        siteTimeStack.innerText = "1d 19h";
+        siteTimeInstagram.innerText = "2d 12h";
+        siteTimeTiktok.innerText = "4d 5h";
+      }
+      updateDonutChart();
+    }
+
+    tabToday.addEventListener('click', () => selectMockTab('today'));
+    tabTotal.addEventListener('click', () => selectMockTab('total'));
+
+    // Trigger initial render of chart
+    updateDonutChart();
+
+    /* =========================================================================
+       8. Presets Syncing (Popup Mockup & Features Bento grid)
+       ========================================================================= */
+    function selectMockPreset(presetKey) {
+      document.querySelectorAll('.mock-preset').forEach(p => p.classList.remove('active'));
+      const mpEl = document.getElementById(`mp${presetKey}`);
+      if (mpEl) mpEl.classList.add('active');
+
+      // Sync active state back to Bento presets grid
+      document.querySelectorAll('.f-preset').forEach(p => p.classList.remove('active'));
+      const bentoPresetEl = document.getElementById(`fPreset${presetKey}`);
+      if (bentoPresetEl) bentoPresetEl.classList.add('active');
+
+      applyPresetValues(presetKey);
+    }
+
+    function applyPresetValues(presetKey) {
+      if (presetKey === 'Pomo') {
+        workMinutes = 25; breakMinutes = 5; targetCycles = 4;
+        inputWorkTime.value = 25; inputBreakTime.value = 5; inputCycles.value = 4;
+      } else if (presetKey === 'Deep') {
+        workMinutes = 90; breakMinutes = 15; targetCycles = 2;
+        inputWorkTime.value = 90; inputBreakTime.value = 15; inputCycles.value = 2;
+      } else if (presetKey === 'Sprint') {
+        workMinutes = 15; breakMinutes = 2; targetCycles = 4;
+        inputWorkTime.value = 15; inputBreakTime.value = 2; inputCycles.value = 4;
+      } else if (presetKey === 'Flow') {
+        workMinutes = 25; breakMinutes = 5; targetCycles = 4;
+        inputWorkTime.value = 25; inputBreakTime.value = 5; inputCycles.value = 4;
+      }
+      resetTimer();
+    }
+
+    /* =========================================================================
+       9. Distraction Site Tags Toggling inside Mockup
+       ========================================================================= */
+    function cycleMockSiteTag(siteKey) {
+      const tagEl = document.getElementById(`mockTag${siteKey}`);
+      if (!tagEl) return;
+      const text = tagEl.innerText;
+      let newCat = "distraction";
+      if (text === "DISTRACTION") {
+        tagEl.innerText = "PRODUCTIVITY";
+        tagEl.className = "fc-site-tag tag-green";
+        newCat = "productivity";
+      } else if (text === "PRODUCTIVITY") {
+        tagEl.innerText = "LEARNING";
+        tagEl.className = "fc-site-tag tag-purple";
+        newCat = "learning";
+      } else {
+        tagEl.innerText = "DISTRACTION";
+        tagEl.className = "fc-site-tag tag-red";
+        newCat = "distraction";
+      }
+      
+      // Update state data
+      if (siteData[siteKey]) {
+        siteData[siteKey].category = newCat;
+      }
+      
+      // Redraw chart to reflect changes immediately
+      updateDonutChart();
+    }
+
+    /* =========================================================================
+       10. Feature Bento Cards Interactive Handlers
+       ========================================================================= */
+    // Card 1: Presets Selection
+    function selectFPreset(presetKey) {
+      document.querySelectorAll('.f-preset').forEach(p => p.classList.remove('active'));
+      document.getElementById(`fPreset${presetKey}`).classList.add('active');
+      
+      // Update mockup preset active state
+      document.querySelectorAll('.mock-preset').forEach(p => p.classList.remove('active'));
+      const mockP = document.getElementById(`mp${presetKey}`);
+      if (mockP) mockP.classList.add('active');
+      
+      applyPresetValues(presetKey);
+    }
+
+    // Card 2: Daily Breakdown bar hovering
+    const chartBarTooltip = document.getElementById('chartBarTooltip');
+    function showBarTooltip(category, time) {
+      let colorStr = "var(--text-primary)";
+      if (category === 'Productivity') colorStr = "var(--color-green)";
+      else if (category === 'Learning') colorStr = "var(--color-purple)";
+      else if (category === 'Communication') colorStr = "var(--color-blue)";
+      else if (category === 'Distraction') colorStr = "var(--color-red)";
+      else if (category === 'Uncategorized') colorStr = "var(--text-muted)";
+      
+      chartBarTooltip.innerHTML = `<span style="color:${colorStr}; font-weight:800;">${category}</span>: <strong>${time}</strong>`;
+    }
+    
+    function hideBarTooltip() {
+      chartBarTooltip.innerText = "Hover over a category to view hours";
+    }
+
+    // Card 3: Rule Manager keypad lock & interactive editing
+    const fCardOverlay = document.getElementById('fCardOverlay');
+    const fRulesContainer = document.getElementById('fRulesContainer');
+    let miniPinInput = "";
+    let isCardUnlocked = false;
+
+    function showCardPinOverlay() {
+      if (isCardUnlocked) return; // No need to lock again if already unlocked
+      fCardOverlay.classList.remove('hidden');
+      miniPinInput = "";
+      updateMiniPinDots();
+    }
+
+    function hideCardPinOverlay() {
+      fCardOverlay.classList.add('hidden');
+    }
+
+    function pressMiniPin(digit) {
+      if (miniPinInput.length < 4) {
+        miniPinInput += digit;
+        updateMiniPinDots();
+      }
+    }
+
+    function clearMiniPin() {
+      if (miniPinInput.length > 0) {
+        miniPinInput = miniPinInput.slice(0, -1);
+        updateMiniPinDots();
+      }
+    }
+
+    // Update dots on mini card key pad
+    function updateMiniPinDots() {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById(`fMdot${i}`);
+        if (dot) {
+          if (i <= miniPinInput.length) {
+            dot.classList.add('filled');
+          } else {
+            dot.classList.remove('filled');
+          }
+        }
+      }
+    }
+
+    function submitMiniPin() {
+      if (miniPinInput === "1234") {
+        isCardUnlocked = true;
+        hideCardPinOverlay();
+        fRulesContainer.classList.add('unlocked');
+        alert("Unlock successful! You can now click on limits (e.g. '30m limit') and status badges ('Blocked') directly to customize them.");
+      } else {
+        miniPinInput = "";
+        updateMiniPinDots();
+        alert("Incorrect PIN. Enter 1234.");
+      }
+    }
+
+    function cycleRuleLimit(element) {
+      if (!isCardUnlocked) {
+        showCardPinOverlay();
+        return;
+      }
+      const limits = ["10m limit", "15m limit", "30m limit", "1h limit", "Unlimited"];
+      const currentText = element.innerText;
+      let nextIndex = limits.indexOf(currentText) + 1;
+      if (nextIndex >= limits.length || nextIndex === -1) nextIndex = 0;
+      element.innerText = limits[nextIndex];
+    }
+
+    function toggleRuleStatus(element) {
+      if (!isCardUnlocked) {
+        showCardPinOverlay();
+        return;
+      }
+      element.classList.toggle('allowed');
+      if (element.classList.contains('allowed')) {
+        element.innerText = "Allowed";
+      } else {
+        element.innerText = "Blocked";
+      }
+    }
+
+    // Card 4: Advanced Site Tweaks (Grayscale switcher)
+    function toggleCardGrayscale(checkbox) {
+      const tweaksPreview = document.getElementById('fTweaksPreview');
+      if (checkbox.checked) {
+        tweaksPreview.classList.add('grayscale-active');
+      } else {
+        tweaksPreview.classList.remove('grayscale-active');
+      }
+    }
+
+
+    // Run first display
+    updateTimerDisplay();
+  </script>
+</body>
+</html>
