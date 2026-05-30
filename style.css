@@ -410,6 +410,15 @@ html.light .glass-card {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.hero-tag:hover {
+  background: rgba(5, 213, 129, 0.15);
+  border-color: var(--color-green);
+  transform: translateY(-1.5px);
 }
 
 .hero-tag span {
@@ -1970,6 +1979,10 @@ html.light .f-tweaks-card:hover {
   padding: 3rem 2rem;
   background: rgba(5, 5, 8, 0.5);
   backdrop-filter: blur(10px);
+}
+
+html.light .footer {
+  background: rgba(244, 244, 245, 0.5);
 }
 
 .footer-container {
