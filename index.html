@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function() {
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem('flow-theme');
+      } catch (e) {}
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      } else if (savedTheme === 'dark') {
+        document.documentElement.classList.remove('light');
+      } else {
+        const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (userPrefersLight) {
+          document.documentElement.classList.add('light');
+        }
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flow — Minimalist, Zero-Distraction Website Blocker</title>
@@ -30,18 +48,18 @@
       </ul>
       <div class="nav-actions">
         <!-- Theme Toggle Button -->
-        <button class="btn-theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme">
-          <svg id="theme-sun-icon" viewBox="0 0 24 24" style="display: none;">
+        <button class="btn-theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          <svg id="theme-sun-icon" viewBox="0 0 24 24" style="display: none;" aria-hidden="true">
             <circle cx="12" cy="12" r="4"></circle>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M16.24 16.24l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
           </svg>
-          <svg id="theme-moon-icon" viewBox="0 0 24 24">
+          <svg id="theme-moon-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
         <!-- GitHub Link Button -->
-        <a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank" class="nav-social-link" title="View Source on GitHub">
-          <svg viewBox="0 0 24 24">
+        <a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank" class="nav-social-link" title="View Source on GitHub" aria-label="View Source on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
         </a>
@@ -124,14 +142,14 @@
               <span class="mock-streak">⚡ 5 Days</span>
             </div>
             <div class="mock-header-right">
-              <button class="mock-btn-icon" id="btnShowAnalytics" title="Explore Options & Features">
-                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <button class="mock-btn-icon" id="btnShowAnalytics" title="Explore Options & Features" aria-label="Show Analytics">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
               </button>
-              <button class="mock-btn-icon" id="btnLock" title="Lock Settings Panel">
-                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <button class="mock-btn-icon" id="btnLock" title="Lock Settings Panel" aria-label="Lock Settings">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
               </button>
-              <button class="mock-btn-icon" id="btnShowSettings" title="Timer Settings">
-                <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <button class="mock-btn-icon" id="btnShowSettings" title="Timer Settings" aria-label="Show Settings">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
               </button>
             </div>
           </div>
@@ -194,15 +212,15 @@
                   <button id="btnCloseSettings" style="background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:18px;line-height:1;">✕</button>
                 </div>
                 <div class="mock-fsp-row">
-                  <label>Work (min)</label>
+                  <label for="inputWorkTime">Work (min)</label>
                   <input type="number" id="inputWorkTime" value="25" min="1" max="120">
                 </div>
                 <div class="mock-fsp-row">
-                  <label>Short Break</label>
+                  <label for="inputBreakTime">Short Break</label>
                   <input type="number" id="inputBreakTime" value="5" min="0" max="60">
                 </div>
                 <div class="mock-fsp-row">
-                  <label>Cycles</label>
+                  <label for="inputCycles">Cycles</label>
                   <input type="number" id="inputCycles" value="4" min="1" max="10">
                 </div>
                 <button class="mock-save-btn" id="btnSaveSettings" style="width:100%;margin-top:8px;">Save Settings</button>
@@ -213,10 +231,10 @@
                 <div style="display:flex;align-items:center;gap:8px;">
                   <span class="mock-lbl">Focus Mode</span>
                   <div class="mock-presets-rail">
-                    <span class="mock-preset active" id="mpPomo" onclick="selectMockPreset('Pomo')" title="Pomodoro">🍅</span>
-                    <span class="mock-preset" id="mpDeep" onclick="selectMockPreset('Deep')" title="Deep Work">🧠</span>
-                    <span class="mock-preset" id="mpSprint" onclick="selectMockPreset('Sprint')" title="Sprint">⚡</span>
-                    <span class="mock-preset" id="mpFlow" onclick="selectMockPreset('Flow')" title="Flow">🌊</span>
+                    <button type="button" class="mock-preset active" id="mpPomo" onclick="selectMockPreset('Pomo')" title="Pomodoro" aria-label="Pomodoro Preset">🍅</button>
+                    <button type="button" class="mock-preset" id="mpDeep" onclick="selectMockPreset('Deep')" title="Deep Work" aria-label="Deep Work Preset">🧠</button>
+                    <button type="button" class="mock-preset" id="mpSprint" onclick="selectMockPreset('Sprint')" title="Sprint" aria-label="Sprint Preset">⚡</button>
+                    <button type="button" class="mock-preset" id="mpFlow" onclick="selectMockPreset('Flow')" title="Flow" aria-label="Flow Preset">🌊</button>
                   </div>
                 </div>
                 <span class="mock-phase" id="timerPhase">Work Session</span>
@@ -270,7 +288,7 @@
                   </svg>
                   <span class="mock-sitedom">reddit.com</span>
                 </div>
-                <span class="fc-site-tag tag-red" id="mockTagReddit" onclick="cycleMockSiteTag('Reddit')">DISTRACTION</span>
+                <button type="button" class="fc-site-tag tag-red" id="mockTagReddit" onclick="cycleMockSiteTag('Reddit')" aria-label="Toggle Reddit category tag">DISTRACTION</button>
                 <span class="mock-sitetime" id="siteTimeReddit">0.8h</span>
               </div>
               
@@ -281,7 +299,7 @@
                   </svg>
                   <span class="mock-sitedom">youtube.com</span>
                 </div>
-                <span class="fc-site-tag tag-red" id="mockTagYoutube" onclick="cycleMockSiteTag('Youtube')">DISTRACTION</span>
+                <button type="button" class="fc-site-tag tag-red" id="mockTagYoutube" onclick="cycleMockSiteTag('Youtube')" aria-label="Toggle YouTube category tag">DISTRACTION</button>
                 <span class="mock-sitetime" id="siteTimeYoutube">3.5h</span>
               </div>
 
@@ -299,7 +317,7 @@
                   </svg>
                   <span class="mock-sitedom">canva.com</span>
                 </div>
-                <span class="fc-site-tag tag-green" id="mockTagCanva" onclick="cycleMockSiteTag('Canva')">PRODUCTIVITY</span>
+                <button type="button" class="fc-site-tag tag-green" id="mockTagCanva" onclick="cycleMockSiteTag('Canva')" aria-label="Toggle Canva category tag">PRODUCTIVITY</button>
                 <span class="mock-sitetime" id="siteTimeCanva">0.6h</span>
               </div>
 
@@ -310,7 +328,7 @@
                   </svg>
                   <span class="mock-sitedom">github.com</span>
                 </div>
-                <span class="fc-site-tag tag-green" id="mockTagGithub" onclick="cycleMockSiteTag('Github')">PRODUCTIVITY</span>
+                <button type="button" class="fc-site-tag tag-green" id="mockTagGithub" onclick="cycleMockSiteTag('Github')" aria-label="Toggle GitHub category tag">PRODUCTIVITY</button>
                 <span class="mock-sitetime" id="siteTimeGithub">2.5h</span>
               </div>
 
@@ -321,7 +339,7 @@
                   </svg>
                   <span class="mock-sitedom">stackoverflow.com</span>
                 </div>
-                <span class="fc-site-tag tag-purple" id="mockTagStack" onclick="cycleMockSiteTag('StackOverflow')">LEARNING</span>
+                <button type="button" class="fc-site-tag tag-purple" id="mockTagStack" onclick="cycleMockSiteTag('StackOverflow')" aria-label="Toggle Stack Overflow category tag">LEARNING</button>
                 <span class="mock-sitetime" id="siteTimeStack">1.2h</span>
               </div>
 
@@ -341,7 +359,7 @@
                   </svg>
                   <span class="mock-sitedom">instagram.com</span>
                 </div>
-                <span class="fc-site-tag tag-red" id="mockTagInstagram" onclick="cycleMockSiteTag('Instagram')">DISTRACTION</span>
+                <button type="button" class="fc-site-tag tag-red" id="mockTagInstagram" onclick="cycleMockSiteTag('Instagram')" aria-label="Toggle Instagram category tag">DISTRACTION</button>
                 <span class="mock-sitetime" id="siteTimeInstagram">0.4h</span>
               </div>
 
@@ -352,7 +370,7 @@
                   </svg>
                   <span class="mock-sitedom">tiktok.com</span>
                 </div>
-                <span class="fc-site-tag tag-red" id="mockTagTiktok" onclick="cycleMockSiteTag('Tiktok')">DISTRACTION</span>
+                <button type="button" class="fc-site-tag tag-red" id="mockTagTiktok" onclick="cycleMockSiteTag('Tiktok')" aria-label="Toggle TikTok category tag">DISTRACTION</button>
                 <span class="mock-sitetime" id="siteTimeTiktok">0.2h</span>
               </div>
             </div>  </div>
@@ -381,26 +399,26 @@
         </div>
         <div class="feature-graphic" style="height: 170px; padding: 16px 12px;">
           <div class="f-presets-grid">
-            <div class="f-preset active" id="fPresetPomo" onclick="selectFPreset('Pomo')">
+            <button type="button" class="f-preset active" id="fPresetPomo" onclick="selectFPreset('Pomo')" aria-label="Select Pomodoro Preset">
               <span>🍅</span>
               <strong>Pomodoro</strong>
               <small>25m · 5m</small>
-            </div>
-            <div class="f-preset" id="fPresetDeep" onclick="selectFPreset('Deep')">
+            </button>
+            <button type="button" class="f-preset" id="fPresetDeep" onclick="selectFPreset('Deep')" aria-label="Select Deep Work Preset">
               <span>🧠</span>
               <strong>Deep Work</strong>
               <small>90m · 15m</small>
-            </div>
-            <div class="f-preset" id="fPresetSprint" onclick="selectFPreset('Sprint')">
+            </button>
+            <button type="button" class="f-preset" id="fPresetSprint" onclick="selectFPreset('Sprint')" aria-label="Select Sprint Preset">
               <span>⚡</span>
               <strong>Sprint</strong>
               <small>15m · 2m</small>
-            </div>
-            <div class="f-preset" id="fPresetFlow" onclick="selectFPreset('Flow')">
+            </button>
+            <button type="button" class="f-preset" id="fPresetFlow" onclick="selectFPreset('Flow')" aria-label="Select Flow Preset">
               <span>🌊</span>
               <strong>Flow</strong>
               <small>25m · 5m</small>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -1041,6 +1059,7 @@
       <ul class="footer-right">
         <li><a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank">GitHub</a></li>
         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdWc7nYA3D1BqFtqtphDzdJ8UKa4DVw5WteEaAJsQlYAT1Rfg/viewform" target="_blank">Feedback</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="https://github.com/vishwa-vsr/FocusFlow/blob/main/LICENSE" target="_blank">License</a></li>
       </ul>
     </div>
@@ -1068,8 +1087,20 @@
     const sunIcon = document.getElementById('theme-sun-icon');
     const moonIcon = document.getElementById('theme-moon-icon');
 
+    // Sync theme toggle icons on startup
+    if (document.documentElement.classList.contains('light')) {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+
     themeToggleBtn.addEventListener('click', () => {
       const isLight = document.documentElement.classList.toggle('light');
+      try {
+        localStorage.setItem('flow-theme', isLight ? 'light' : 'dark');
+      } catch (e) {}
       if (isLight) {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
