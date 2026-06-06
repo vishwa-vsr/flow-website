@@ -581,6 +581,11 @@ html.light .mockup-card {
 }
 
 .mock-preset {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0;
+  font-family: inherit;
+  outline: none;
   cursor: pointer;
   font-size: 13px;
   display: inline-flex;
@@ -589,7 +594,6 @@ html.light .mockup-card {
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  border: 1px solid transparent;
   transition: var(--transition-smooth);
 }
 
@@ -646,7 +650,7 @@ html.light .focus-settings-panel {
   padding: 6px;
   text-align: center;
   font-family: monospace;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 800;
   outline: none;
   transition: var(--transition-smooth);
@@ -658,6 +662,8 @@ html.light .mock-fsp-row input {
 
 .mock-fsp-row input:focus {
   border-color: var(--color-green);
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
 }
 
 /* Weekly Goal Section in Mockup */
@@ -1498,6 +1504,9 @@ html.light .feature-graphic {
   justify-content: center;
   cursor: pointer;
   transition: var(--transition-smooth);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
 }
 
 html.light .f-preset {
@@ -1757,8 +1766,8 @@ html.light .f-mdot {
 }
 
 .f-mini-keypad button {
-  padding: 3px;
-  font-size: 9px;
+  padding: 4px;
+  font-size: 11px;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-subtle);
@@ -1841,13 +1850,18 @@ html.light .f-tweaks-card:hover {
 
 
 .fc-site-tag {
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
-  padding: 2px 4px;
+  padding: 3px 6px;
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
   transition: var(--transition-smooth);
+  background: none;
+  border: 1px solid transparent;
+  font-family: inherit;
+  outline: none;
+  display: inline-block;
 }
 
 .fc-site-tag.tag-red {
@@ -2600,6 +2614,107 @@ html.light .dev-response {
   color: var(--text-secondary);
   line-height: 1.5;
   font-style: italic;
+}
+
+/* =========================================================================
+   11. Privacy Policy Page Styles
+   ========================================================================= */
+.privacy-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.privacy-card {
+  padding: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 3rem 1rem;
+  }
+  .privacy-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.privacy-title {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.privacy-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.privacy-content h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.privacy-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.privacy-content p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.privacy-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.privacy-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2rem 0;
+}
+
+.privacy-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-content li {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.privacy-content li::before {
+  content: "•";
+  color: var(--color-green);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.privacy-content a {
+  color: var(--color-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.privacy-content a:hover {
+  text-decoration: underline;
+  color: var(--text-primary);
 }
 
 
