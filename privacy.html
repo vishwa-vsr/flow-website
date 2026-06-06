@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem('flow-theme');
+      } catch (e) {}
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      } else if (savedTheme === 'dark') {
+        document.documentElement.classList.remove('light');
+      } else {
+        const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (userPrefersLight) {
+          document.documentElement.classList.add('light');
+        }
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for Flow browser extension. Flow operates entirely locally and does not collect or transmit any user data.">
+  <link rel="icon" type="image/png" href="./icons/icon16.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Graphics -->
+  <div class="canvas-grid"></div>
+  <div class="canvas-spotlight"></div>
+  <div class="glow-blob blob-green"></div>
+  <div class="glow-blob blob-amber"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" id="nav-logo">
+        <img src="./icons/icon128.png" alt="Flow Logo" style="width: 28px; height: 28px; border-radius: 6px; filter: drop-shadow(0 0 6px rgba(5, 213, 129, 0.3));">
+        <span>Flow</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank">Open Source</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="btn-theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          <svg id="theme-sun-icon" viewBox="0 0 24 24" style="display: none;" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M16.24 16.24l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg id="theme-moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <!-- GitHub Link Button -->
+        <a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank" class="nav-social-link" title="View Source on GitHub" aria-label="View Source on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="index.html#download" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.84rem;">Install</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Privacy Content Section -->
+  <main class="privacy-container">
+    <article class="privacy-card glass-card">
+      <h1 class="privacy-title text-gradient">Flow — Privacy Policy</h1>
+      <p class="privacy-subtitle">Effective Date: May 21, 2026 | Last Updated: June 2, 2026</p>
+
+      <div class="privacy-content">
+        <p>Flow ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how our browser extension collects, uses, and safeguards your information.</p>
+        
+        <p>Our core philosophy is simple: <strong>Your data belongs to you.</strong></p>
+        
+        <hr>
+        
+        <h2>1. Data Collection and Storage</h2>
+        <p>Flow operates entirely on your local device. We do not use external servers, and we do not transmit, sell, or rent your personal data to any third parties.</p>
+        
+        <p><strong>What we track locally:</strong></p>
+        <ul>
+          <li><strong>Website URLs & Time Spent:</strong> To provide you with analytics on how you spend your time online.</li>
+          <li><strong>User Activity:</strong> To determine if you are actively browsing or if your computer is idle (so we can pause the timer accurately).</li>
+          <li><strong>Settings & Preferences:</strong> Your blocking rules, focus schedules, goals, PIN configuration, and site categories.</li>
+          <li><strong>Focus Session History:</strong> Records of your completed Pomodoro sessions for the History tab.</li>
+        </ul>
+        
+        <p><strong>Where it is stored:</strong></p>
+        <p>All of the data mentioned above is stored locally within your browser's built-in storage (<code>chrome.storage</code>) on your own computer. We do not have access to this data.</p>
+        
+        <hr>
+        
+        <h2>2. Browser Permissions</h2>
+        <p>To function properly, Flow requires certain browser permissions. We only request permissions that are absolutely necessary for the core features of the extension:</p>
+        <ul>
+          <li><strong>Storage / Unlimited Storage:</strong> To save your settings and historical time-tracking data locally.</li>
+          <li><strong>Alarms / Idle:</strong> To run focus timers accurately and pause tracking when you step away from your computer.</li>
+          <li><strong>Notifications:</strong> To alert you when a focus session ends or a time limit is approaching.</li>
+          <li><strong>Declarative Net Request:</strong> To instantly block access to distracting websites at the network level, based on your rules.</li>
+          <li><strong>Tabs / Scripting:</strong> To accurately track active time spent on the websites you visit.</li>
+          <li><strong>Favicon (Chrome/Edge only):</strong> To display site icons next to tracked websites in the popup and dashboard.</li>
+          <li><strong>Host Permissions (<code>&lt;all_urls&gt;</code>):</strong> Required to apply blocking and tracking functionality across all websites you navigate to.</li>
+        </ul>
+        
+        <hr>
+        
+        <h2>3. Third-Party Services</h2>
+        <p>We do not integrate with any third-party analytics services (such as Google Analytics) or advertising networks. No data is ever sent outside of your browser.</p>
+        
+        <hr>
+        
+        <h2>4. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time as we add new features. If we make significant changes, we will notify you through an update note within the extension's changelog.</p>
+        
+        <hr>
+        
+        <h2>5. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or how Flow handles your data, please open an issue on our <a href="https://github.com/vishwa-vsr/Flow/issues" target="_blank">GitHub repository</a>.</p>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="./icons/icon16.png" alt="Flow Icon" style="width: 16px; height: 16px;">
+        <span class="footer-logo-text">Flow Extension</span>
+        <span>© 2026. Free & Open Source.</span>
+      </div>
+      <ul class="footer-right">
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow" target="_blank">GitHub</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdWc7nYA3D1BqFtqtphDzdJ8UKa4DVw5WteEaAJsQlYAT1Rfg/viewform" target="_blank">Feedback</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="https://github.com/vishwa-vsr/FocusFlow/blob/main/LICENSE" target="_blank">License</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    /* =========================================================================
+       1. Global Mouse Spotlight Positioning Tracker
+       ========================================================================= */
+    let spotlightTimeout;
+    document.addEventListener('mousemove', (e) => {
+      if (spotlightTimeout) return;
+      spotlightTimeout = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        spotlightTimeout = null;
+      });
+    });
+
+    /* =========================================================================
+       2. Light & Dark Theme Swapper
+       ========================================================================= */
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('theme-sun-icon');
+    const moonIcon = document.getElementById('theme-moon-icon');
+
+    // Sync theme toggle icons on startup
+    if (document.documentElement.classList.contains('light')) {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      try {
+        localStorage.setItem('flow-theme', isLight ? 'light' : 'dark');
+      } catch (e) {}
+      if (isLight) {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
